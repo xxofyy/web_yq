@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load staticfiles %}
+
+{% block title %}
+    {{ blog_type.type_name }}
+{% endblock %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="col-sm-11" style="padding-left: 110px">
+        <div class="panel panel-default ">
+            <div class="panel-heading">类型：{{ blog_type.type_name }}<span style="padding-left: 100px">一共{{ blogs|length }}篇文章</span></div>
+            <div class="panel-body">
+                {% for blog in blogs %}
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <div class="title-1"><a href="{% url 'blog_detail' blog.pk %}">《{{blog.title }}》</a></div>
+                            <div class="dropdown detail-drop">
+                                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    详细信息
+                                    <span class="caret"></span>
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#">作者：{{blog.author}}</a></li>
+                                        <li><a href="#">类型：{{blog.blog_type}}</a></li>
+                                        <li><a href="#">发布日期：{{blog.create_time}}</a></li>
+                                        <li><a href="#">最近更新：{{blog.last_updated_time}}</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                  </ul>
+                            </div>
+                        </div>
+                        <div class="panel-footer panel-info">{{ blog.content|striptags|truncatechars:150}}</div>
+                    </div>
+                {% empty %}
+                    <h1 align="center">（>=<）还没有文章呢！！！</h1>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

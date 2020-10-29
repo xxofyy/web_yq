@@ -1,0 +1,11 @@
+.blog-types{
+    list-style-type: none
+}
+.detail-drop{
+    float: right;
+}
+.title-1{
+    float: left;
+    font-weight: bolder;
+    font-size: larger
+}

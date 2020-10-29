@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=0.75,minimun-scale=0.75,maximum-scale=0.75,user-scalable=no">
+    <title>缘起-注册</title><link href="{% static 'images/favicon.ico' %}" rel="icon" type="image/x-ico"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Register.css' %}">
+    <style>
+        body{
+            background-image: url("{% static 'images/login.jpg' %}");
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+    <div class="container">
+            <h1 style="color: lightsalmon; margin: 0; text-align: center">注册!!!^o^</h1>
+            <form action="" method="post" >
+                {% csrf_token %}
+                {% for field in reg_form %}
+{#                   <label id="label" for="{{ field.id_for_label }}">{{ field.label }}</label>#}
+                    {{ field }}
+                    <p class="text-danger">{{ field.errors.as_text }}</p>
+                {% endfor %}
+                <span class="pull-left text-danger">{{ reg_form.non_field }}</span>
+                <input type="submit" name="button" value="register!!!" />
+            </form>
+        <div align="center" id="back"><a href="javascript:history.back(-1)"><h2>返回上一页</h2></a></div>
+    </div>
+    </div>
+</body>
+</html>

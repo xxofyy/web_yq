@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lost</title>
+    <link href="../../static/images/缘起.ico" rel="icon" type="image/x-ico"/>
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./../../static/css/bundle-SimpleMemory-mobile.min.css">
+    <style>
+        body {
+            background-image: url("../../static/images/bg.jpg");
+        }
+        a:link{
+            color: aquamarine;
+        text-shadow: 3px 3px 3px #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h3>哎呀！迷路了</h3>
+    <h2>{{ message }}</h2><br><br>
+    <a href="javascript:history.back(-1)">返回上一页</a><br><br>
+</div>
+
+<div id="main" align="center">
+         <object type="application/x-shockwave-flash" style="outline:none;" data="../../static/images/hamster.swf" width="210" height="160">
+         <param name="movie" value="https://cdn.abowman.com/widgets/hamster/hamster.swf?up_bodyColor=f0e9cc&amp;up_feetColor=D4C898&amp;up_eyeColor=000567&amp;up_wheelSpokeColor=DEDEDE&amp;up_wheelColor=FFFFFF&amp;up_waterColor=E0EFFF&amp;up_earColor=b0c4de&amp;up_wheelOuterColor=FF4D4D&amp;up_snoutColor=F7F4E9&amp;up_bgColor=F0E4E4&amp;up_foodColor=cba920&amp;up_wheelCenterColor=E4EB2E&amp;up_tailColor=E6DEBE&amp;">
+         <param name="AllowScriptAccess" value="always">
+         <param name="wmode" value="opaque"></object>
+</div>
+
+</body>
+</html>

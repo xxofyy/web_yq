@@ -1,0 +1,90 @@
+{% extends 'base.html' %}{% load staticfiles %}
+{% block title %}博客列表{% endblock %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">博客列表</div>
+                    <div class="panel-body">
+                        {% for blog in page_of_blogs.object_list %}
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="title-1"><a href="{% url 'blog_detail' blog.pk %}">《{{blog.title }}》</a><p>{{blog.author}}</p></div>
+                                    <div class="dropdown detail-drop">
+                                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            详细信息
+                                            <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                <li><a href="#">作者：{{blog.author}}</a></li>
+                                                <li><a href="#">类型：{{blog.blog_type}}</a></li>
+                                                  <li><a href="#">阅读：{{blog.get_read_num}}</a></li>
+                                                <li><a href="#">发布日期：{{blog.create_time}}</a></li>
+                                                <li><a href="#">最近更新：{{blog.last_updated_time}}</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                          </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-footer panel-info">{{ blog.content|striptags|truncatechars:70}}</div>
+                            </div>
+                        {% empty %}
+                            <h1 align="center">（>=<）还没有文章呢！！！</h1>
+                        {% endfor %}
+                    </div>
+                    <div align="center">
+                    <nav aria-label="...">
+                      <ul class="pagination">
+                        <li>
+                            {% if page_of_blogs.has_previous %}
+                                <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous"><span >&laquo;</span></a>
+                            {% else %}
+                                <span aria-hidden="true">&laquo;</span>
+                            {% endif %}
+                        </li>
+                        {% for page_num in page_range %}
+                            {% if page_num == page_of_blogs.number %}
+                                <li class="active"><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% else %}
+                                {% if page_num == '...' %}
+                                    <li><span>{{ page_num }}</span></li>
+                                {% else %}
+                                    <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                      <li>
+                {% if page_of_blogs.has_next %}
+                    <a href="?page={{ page_of_blogs.next_page_number }}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                {% else %}
+                    <span aria-hidden="true">&raquo;</span>
+                {% endif %}</li>
+                      </ul>
+                    </nav>
+        <h4 align="center">共{{ page_of_blogs.paginator.count }}篇---当前第{{ page_of_blogs.number }}页---共{{ page_of_blogs.paginator.num_pages }}页</h4>
+    </div>
+                </div>
+            </div>
+            <div class="col-sm-2" >
+                    <div class="panel panel-default">
+                       <div class="panel-heading"><h4 align="center">博客分类</h4></div>
+                       <div class="panel-body">
+                           <ul class="blog-types">
+                              {% for blog_type in blog_types %}
+                                <li><a href="{% url 'blog_with_type' blog_type.pk %}">{{ blog_type.type_name }}</a></li>
+                              {% empty %}
+                                <li>暂无分类</li>
+                              {% endfor %}
+                           <li><a href="javascript:window.scrollTo(0,0)" title="回到顶端">wwww</a></li>
+                           </ul>
+                      </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

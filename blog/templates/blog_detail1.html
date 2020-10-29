@@ -1,0 +1,134 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>绿舟博客-{{ blog.title }}</title>
+    <link href="{% static 'images/缘起.ico' %}" rel="icon" type="image/x-ico"/>
+    <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <style>
+        /*定义滚动条样式（高宽及背景）*/
+        ::-webkit-scrollbar {
+            width: 6px;   /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+            background: #007acc;
+        }
+        /*定义滚动条轨道（凹槽）样式*/
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);    /* 较少使用 */
+            border-radius: 3px;
+        }
+        /*定义滑块 样式*/
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            height: 100px;    /* 滚动条滑块长度 */
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div class="head-box">
+            <div class="head-left">
+                <div id="navigator">
+                <ul id="navList">
+                    <li id="left-li"><a  href="/blog">
+                        博客列表</a>
+                    </li>
+                    <li id="left-li">
+                        <a  href="/">
+                        官网首页</a>
+                    </li>
+                    <li id="left-li">
+                        <a href="/lost">
+                        最新发表</a>
+                    </li>
+                    <li id="left-li">
+                        <a  href="/lost">
+                        联系</a></li>
+                    <li id="left-li">
+                        <a  href="/lost" data-rss="">
+                        订阅</a>
+                    </li>
+                    <li id="right-li-1">{% if user.is_authenticated %}
+                                    <a href="##" style="color: #2aabd2">{{ user.username }}</a>
+                        {% else %}
+                                    <a href="{% url 'login' %}?from={{ request.get_full_path }}" style="color: #2aabd2">登录</a>
+                        {% endif %}</li>
+
+                    </ul>
+	</div>
+            </div>
+        </div>
+        <div class="body-box">
+            <div class="left-body">
+                <div class="forFlow">
+                    <div id="topics">
+                        <div id="blog_detail">
+                            <div id="blogTitle" >{{ blog.title }}</div>
+                            <a href="##">{{ blog.author }}</a><a style="padding-left: 20px">阅读:22</a><a style="padding-left: 20px">点赞:10</a><hr>
+                            <div id="blogBody">{{ blog.content|safe }}</div><hr>
+                            <div id="blogStatus">
+                                <h5 style="float: left">发表日期：{{blog.create_time|date:'Y-m-d H:n:s'}}</h5>
+                                <h5 style="float: right">最近修改：{{blog.last_updated_time|date:'Y-m-d H:n:s'}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-edit-box d-flex">
+                                <form id="commentform" action="{% url 'update_comment' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="user-img">
+                                        {% if user.is_authenticated %}
+                                            {{ user.username }},欢迎评论~<input type="submit" style="float: right" value="提交评论">
+                                        {% else %}
+                                            <a href="{% url 'login' %}?from={{ request.get_full_path }}" style="color: #2aabd2">登录以评论</a>
+                                        {% endif %}
+                                    </div>
+                                    <img class="comment-sofa-flag" src="{% static 'images/commentFlag@2x.png' %}" style="display: inline;">
+                                    <div style="width: 100%">{{ comment_form }}</div>
+                                    <div class="opt-box"> <!-- d-flex -->
+                                        <div id="ubbtools" class="add_code">
+                                            <a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                    <div>
+                        <div id="comment-list" style="background-color: #9d9d9d">
+                                <div>
+                                    {% for comment in comments %}
+                                        <div>
+                                            <p style="padding-left: 20px"><a href="##">{{ comment.author }}</a>于
+                                            {{ comment.comment_time|date:'Y-m-d H:n:s' }}&nbsp;发表评论：</p>
+                                            <p id="comment-text">{{ comment.text|safe }}</p><hr>
+                                        </div>
+                                    {% empty %}
+                                        暂无评论
+                                    {% endfor %}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-body">
+               <div id="swf">
+                    <div style="background-color: #9d9d9d;padding: 20px">
+                        <embed wmode="transparent" src="{% static 'images/honehone_clock_tr.swf' %}" quality="high" bgcolor="#FDF6E3" width="230" height="120" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+                   </div>
+                    <div style="align-content: center;">
+                         <object type="application/x-shockwave-flash" style="outline:none;" data="{% static 'images/hamster.swf' %}" width="270" height="200">
+                         <param name="movie" value="https://cdn.abowman.com/widgets/hamster/hamster.swf?up_bodyColor=f0e9cc&amp;up_feetColor=D4C898&amp;up_eyeColor=000567&amp;up_wheelSpokeColor=DEDEDE&amp;up_wheelColor=FFFFFF&amp;up_waterColor=E0EFFF&amp;up_earColor=b0c4de&amp;up_wheelOuterColor=FF4D4D&amp;up_snoutColor=F7F4E9&amp;up_bgColor=F0E4E4&amp;up_foodColor=cba920&amp;up_wheelCenterColor=E4EB2E&amp;up_tailColor=E6DEBE&amp;">
+                         <param name="AllowScriptAccess" value="always">
+                         <param name="wmode" value="opaque"></object>
+                    </div>
+		        </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

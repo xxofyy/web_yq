@@ -1,0 +1,21 @@
+
+CMD:
+django-admin startproject 项目名
+python manage.py startapp 应用名
+python manage.py makemigrations  #
+python manage.py migrate #同步至数据库
+python manage.py runserver
+python manage.py shell #命令行模式
+
+-i https://pypi.tuna.tsinghua.edu.cn/simple
+
+设置创建时间create_time,
+1可以在命令行中
+2也可以在models.py里设置  DATeTimeField(defaut=timezone.now)  (from django.utils import timezone)
+3也可以直接   DATeTimeField(auto_time_now_add=True)
+
+教程09（模板 块 嵌套 ）
+
+pip 一键导出：
+    pip freeze > requirements.txt
+    pip install -r requirements.txt

@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ app.app_name }}</title>
+    <link href="../../static/images/缘起.ico" rel="icon" type="image/x-ico"/>
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./../../static/css/bundle-SimpleMemory-mobile.min.css">
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-image: url("../../static/images/bg.jpg");
+        }
+        a:link{
+            color: aquamarine;
+            text-shadow: 3px 3px 3px #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div align="center">
+        您所在的地方是:<h2>{{ app.app_name }}</h2>
+
+        {% ifequal app.id 3 %}
+            <p>本站是长沙理工大学土木教改班1901学生项目--“缘起绿舟”的官方网站<br>本项目为非盈利项目，旨在呼吁更多的人一起保护环境<br>
+            本站的功能暂时不够完善，敬请期待</p>
+        {% endifequal  %}
+        {% ifequal app.id 4 %}
+            <p>申明：本站为非盈利网站，<br>站内大部分资源版权为本站所有，一部分资源来源于网络，<br>若有侵权，请联系我们。<br>
+            联系方式：<br>qq:2170982976<br>邮箱：to.yx@foxmail.com</p>
+        {% endifequal  %}
+        {% ifequal app.id 12 %}
+            windows:<a href="{% static 'download/yesix4_1.rar' %}">音乐集合播放及网页浏览软件(缘起绿舟加盟版)</a><br><br><br>
+        {% endifequal %}
+        {% ifequal app.id 13 %}
+            <p>暂时还没有更多内容</p>
+        {% endifequal  %}
+        {% ifequal app.id 21 %}
+            <p>微信搜索：缘起绿舟<br>关注即可获取更多内容</p>
+        {% endifequal  %}
+        {% ifequal app.id 22 %}
+            <p>暂未发布微信小程序，敬请期待</p>
+        {% endifequal  %}
+        <a href="javascript:history.back(-1)">返回上一页</a>
+    </div>
+
+    <div id="main" align="center">
+             <object type="application/x-shockwave-flash" style="outline:none;" data="../../static/images/hamster.swf" width="210" height="160">
+             <param name="movie" value="https://cdn.abowman.com/widgets/hamster/hamster.swf?up_bodyColor=f0e9cc&amp;up_feetColor=D4C898&amp;up_eyeColor=000567&amp;up_wheelSpokeColor=DEDEDE&amp;up_wheelColor=FFFFFF&amp;up_waterColor=E0EFFF&amp;up_earColor=b0c4de&amp;up_wheelOuterColor=FF4D4D&amp;up_snoutColor=F7F4E9&amp;up_bgColor=F0E4E4&amp;up_foodColor=cba920&amp;up_wheelCenterColor=E4EB2E&amp;up_tailColor=E6DEBE&amp;">
+             <param name="AllowScriptAccess" value="always">
+             <param name="wmode" value="opaque"></object>
+    </div>
+</div>
+</body>
+</html>

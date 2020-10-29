@@ -1,0 +1,170 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all">
+    <title>缘起绿舟-官方</title>
+    <link href="{% static 'images/缘起.ico' %}" rel="icon" type="image/x-ico"/>
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <style>
+    .r_nav{pointer-events:none; position: fixed;z-index:3;  top: 50%; right: 0;margin-top:-240px; width: 254px; height: 494px; background:url("{% static 'images/r_navBg.png' %}")
+
+    }
+    .r_nav div,.r_nav li,.r_nav p,.r_nav a{padding:0;margin:0;}
+    .r_nav .r_con{pointer-events:auto; position: absolute; top: 160px; left: 85px; }
+    .r_nav .r_dj{ position: absolute; top: 15px; left: 24px; z-index: 2; width: 165px; height: 145px; background: url("{% static 'images/zz.png' %}") no-repeat top center;}
+    .r_nav .r_dj span{display: block; position: absolute; top: 37px; left: 12px; width: 88px; height: 36px; font-size: 14px; text-indent: 2px; font-weight: bold; line-height: 18px; color: #62401b; overflow: hidden;}
+    .r_nav .r_con ,.r_nav .r_con .r_code{ position: relative; width: 117px; height: 113px; background: url("{% static 'images/r_all.png' %}") no-repeat 0 -3px; padding-top: 3px;}
+    .r_nav .r_con .topImg ,.r_assBg .assCode{ display: block; margin: 0 auto;}
+    .r_nav .r_con .r_code{ margin-top: 1px;}
+    .r_con .r_burst,.r_con ,.r_con .r_wc_gzh, .r_con { width: 117px; height: 38px; margin-top: 1px; }{ width: 117px; height: 38px; margin-top: 1px; }
+    .r_con .r_burst{ background: url("{% static 'images/r_all.png' %}") no-repeat -122px -120px;}
+    .r_con .r_burst a, .r_con .r_wc_survey a{ display: block; width: 100%; height: 100%;}
+    .r_con { position: relative; background: url("{% static 'images/r_all.png' %}") no-repeat 0 -160px;}
+    .yybd p{ position: absolute; bottom: 2px; left: 50%; width: 195px; height: 30px; margin-left: -97.5px; text-align: center; line-height: 30px; color: #dcdcdc; font-size: 12px; overflow: hidden}
+    .r_con .r_assBg{display: none; position: absolute; top: -66px; left: -116px;  width: 115px; height: 144px; background: url("{% static 'images/r_all.png' %}") no-repeat 0 -416px; padding-top: 7px }
+    .r_assBg .assCode{ margin-bottom: 6px;}
+    .r_assBg p{ width: 101px; height: 34px; line-height: 17px; color: #dcdcdc; font-size: 12px; text-align: center; margin: 0 auto; overflow: hidden}
+    .r_assBg p span{ color: #cd974b;}
+    .r_con .r_burst:hover{ background: url("{% static 'images/r_all.png' %}") no-repeat -122px -240px;}
+    .r_con :hover{ background: url("{% static 'images/r_all.png' %}") no-repeat 0 -240px;}
+    .r_con :hover { display: block}
+    .r_con .r_assistant:hover .r_assBg,.r_con .r_wc_gzh:hover .r_assBg, .r_con .r_wc_role:hover .r_assBg{ display: block}
+    .r_con .r_wc_gzh{ position: relative; background: url("{% static 'images/r_all.png' %}") no-repeat -122px -160px;}
+    .r_con .r_wc_gzh:hover{ background: url("{% static 'images/r_all.png' %}") no-repeat -122px -200px;}
+    .r_con { position: relative; background: url("{% static 'images/r_all.png' %}") no-repeat -122px -417px;}
+    .r_con :hover{ background: url("{% static 'images/r_all.png' %}") no-repeat -122px -458px;}
+      .r_con { position: relative; background: url("{% static 'images/r_all.png' %}") no-repeat -122px 0;}
+    .r_con:hover{ background: url("{% static 'images/r_all.png' %}") no-repeat -122px -43px;}
+    .r_wc_gzh .r_assBg p{ width: 100%;}
+    </style>
+    <style>
+        /*定义滚动条样式（高宽及背景）*/
+        ::-webkit-scrollbar {
+            width: 6px;   /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+            background: #007acc;
+        }
+        /*定义滚动条轨道（凹槽）样式*/
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);    /* 较少使用 */
+            border-radius: 3px;
+        }
+        /*定义滑块 样式*/
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            height: 100px;    /* 滚动条滑块长度 */
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body style="padding-top: 0;">
+{#______________________________________________________________________________________________________________________#}
+<div id="h_header" class="h_header h_t-header-fix">
+	<div>
+		<div class="h_header-inner">
+			<h1><a href="/" class="h_logo h_pa" title="欢迎界面">000</a></h1>
+			<ul class="h_main-nav h_clearfix">
+				<li>
+					<a>官网首页<em>HOME</em></a>
+				</li>
+				<li>
+					<a>绿舟资料<em>DATA</em></a>
+				</li>
+				<li>
+					<a>内容中心<em>CONTENTS</em></a>
+				</li>
+				<li>
+					<a >百态绿舟<em>CULTURE</em></a>
+			</li>
+				<li>
+					<a >社区互动<em>COMMUNITY</em></a>
+				</li>
+				<li>
+					<a>给予支持<em>SURPPORT</em></a>
+				</li>
+			</ul>
+			<div class="h_login_pannel h_clearfix h_pa">
+				<a class="h_user_pic ">
+					<img src="{% static 'images/yq1.png' %}" width="42" height="42">
+				</a>
+				<div class="h_per-infor " style="display: block;">
+					<span href="/">欢迎
+
+                        {% if user.is_authenticated %}
+                                    <a style="color: #2aabd2">{{ user.username }}</a><a href="/logout/" style="color: #2aabd2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注销</a>
+                        {% else %}
+                                    <a href="/login/" style="color: #2aabd2">登录</a>or<a href="/register/" style="color: #2aabd2">注册</a>
+                        {% endif %}
+                    </span>
+					<div class="h_unlogin_info">
+						<p>邀您一起保护环境</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="J_subNav" class="h_sub-nav">
+			<ul class="h_sub-nav-inner">
+				<li class="h_down-nav">
+                    {% for app in apps %}
+					    <a{% ifequal app.id 2 %}
+                                {% ifequal user.is_staff True %}href="{{ app.app_href }}"
+                                {% else %} href="javascript:{alert('你不是管理员，无法进入')}"
+                                {% endifequal %}
+                          {% else %} href="{{ app.app_href }}"
+                          {% endifequal %}
+                        title="{{ app.app_name }}">{{ app.app_name }}</a>
+
+				    {% if forloop.counter|divisibleby:4 %}
+                        </li><li class="h_down-nav">
+                    {% endif %}
+                    {% endfor %}
+                </li>
+			</ul>
+		</div>
+	</div>
+</div>
+{#_____________________________________________________________________________________________________________________#}
+
+    <div class="col-md-4" style="padding-top: 110px;">
+    <div class="jumbotron" style="background: url({% static 'images/pre.jpg' %});background-size: 100%">
+      <div class="container">
+        <p>绿舟博客，记录大自然的文字！</p>
+        <h1>Hello, nature!</h1>
+      <p><a class="btn btn-primary btn-lg" href="/blog" role="button">>>绿舟博客</a></p>
+      </div>
+    </div>
+</div>
+
+
+{#______________________________________________________________________________________________________________________#}
+<div class="r_nav">
+    <div class="r_dj">
+        <span>登陆和我们一起轻驶绿舟吧~</span>
+    </div>
+    <ul class="r_con">
+        <li class="r_code">
+          <a href="{% static 'download/yesix4_1.rar' %}"><img src="{% static 'images/yyqq.jpg' %}"width="111" height="110" class="topImg" alt="下载软件"></a>
+        </li>
+         <li class="r_burst"><a href="https://weibo.com/p/1005057392883295/home?from=page_100505&mod=TAB#place" onclick="PTTSendClick('link','gfwb','小编微博');" target="_blank" title="小编微博"></a></li>
+        <li class="r_wc_gzh tganime-fadein-trigger ">
+            <div class="r_assBg tganime-fadein-child">
+
+                <img src="{% static 'images/code1.jpg' %}" alt="微信公众号" width="101" height="100" class="assCode">
+                <p>扫码<span>关注官方公众号</span><br>获取<span>最新资讯及好礼</span></p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{#-------------------------------------------------------------------------------------------------------------------------#}
+{#<iframe scrolling="no" height="850" width="100%" style="border: none;margin: 0 auto;overflow: hidden" src="https://www.baidu.com"></iframe>#}
+
+</body>
+</html>

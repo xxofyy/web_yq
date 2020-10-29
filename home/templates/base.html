@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+{#    <meta name="viewport" content="width=device-width,initial-scale=1">#}
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'images/缘起.ico' %}" rel="icon" type="image/x-ico"/>
+    <style>
+            /*定义滚动条样式（高宽及背景）*/
+            ::-webkit-scrollbar {
+                width: 6px;   /* 滚动条宽度， width：对应竖滚动条的宽度  height：对应横滚动条的高度*/
+                background: #007acc;
+            }
+            /*定义滚动条轨道（凹槽）样式*/
+            ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);    /* 较少使用 */
+                border-radius: 3px;
+            }
+            /*定义滑块 样式*/
+            ::-webkit-scrollbar-thumb {
+                border-radius: 3px;
+                height: 100px;    /* 滚动条滑块长度 */
+                background-color: #ccc;
+            }
+        </style>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block header_extends %}{% endblock %}
+</head>
+<body style="opacity: 0.75;
+            background: url({% static 'images/pre.jpg' %});
+            background-repeat: no-repeat;
+            background-attachment:fixed;
+        margin-top: 50px">
+
+<nav class="navbar navbar-default">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="cintainer-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="{% static 'images/yq1.png' %}" alt="缘起绿舟" width="80"></a>
+                <a class="navbar-brand" href="#">绿舟_博客</a>
+                <button  class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="{% url 'home' %}">返回首页</a></li>
+                    <li class="active"><a href="{% url 'blog_list' %}">博客列表</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="搜索文章，作者">
+                    </div>
+                    <button type="submit" class="btn btn-default">search</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"></a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                              {% if user.is_authenticated %}{{ user.username }}
+                              {% else %}你还未登陆
+                              {% endif %}
+                          <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          {% if user.is_authenticated %}
+                              <li><a href="{% url 'logout' %}?from={{ request.get_full_path }}"  style="color: #2aabd2">注销</a></li>
+                          {% else %}
+                              <li><a href="{% url 'login' %}?from={{ request.get_full_path }}"  style="color: #2aabd2">登录</a></li>
+                              <li><a href="{% url 'register' %}?from={{ request.get_full_path }}"  style="color: #2aabd2">注册</a></li>
+                          {% endif %}
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

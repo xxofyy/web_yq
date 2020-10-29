@@ -1,0 +1,204 @@
+/*body{background-color: aquamarine}*/
+body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,p,form{margin:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+em,i,b{font-style:normal;}
+ul,ol{list-style:none;}
+a{text-decoration:none;color:#363636;}
+a:hover{text-decoration:none;}
+img{display:block;border:0;border-radius:2px 2px 2px 2px;}
+button,input,select,textarea{font-size:100%;outline:none;}
+textarea{resize:none;}
+table{border-collapse:collapse;border-spacing:0;}
+td,th,ul,ol{padding:0;}
+cite{font-style:normal;}
+body{background-image: url("../../static/images/舟.jpg");background-size: 100%;background-attachment: fixed;padding-top:42px;font:14px/1.5 "Microsoft YaHei",Tahoma,"simsun",sans-serif;color:aquamarine;}
+* {
+    -webkit-box-sizing: content-box;
+}
+#h_header{position: fixed}
+.h_header{position:absolute;left:0;top:0;width:100%;min-width:1280px;height:84px;z-index:99;background:#000;background:rgba(0,0,0,0.8);}
+.h_t-header-fix {transition: none;}
+.h_header-inner{width:1200px;height:84px;margin:0 auto;position:relative;}
+.h_logo{left:0;top:16px;z-index:100;background:url(../../static/images/缘起绿舟.png) no-repeat center center;width:200px;height:54px;text-indent:-999px;overflow:hidden;}
+.h_pa{position:absolute}
+.h_main-nav li:hover,.h_download_btn,.h_guard_btn,.h_tiyan_btn{background:url('#') no-repeat;display:inline-block;}
+.h_main-nav{width:790px;padding-left:230px;}
+.h_main-nav li{float:left;width:110px;height:84px;text-align:center;}
+.h_main-nav li:hover{}
+.h_main-nav li:hover a{color:#e4b653;}
+.h_main-nav li:hover em{color:#91763f;}
+.h_main-nav a{display:block;width:110px;height:64px;padding:20px 0 0;color:#c9c9dd;font-size:18px;line-height:30px;}
+.h_main-nav a:hover{text-decoration: none;}
+.h_main-nav em{display:block;padding-top:5px;-webkit-transform:scale(0.95);-o-transform:scale(0.95);font-size:12px;line-height:16px;color:#858792;}
+.h_clearfix{zoom:1}
+.h_clearfix:after{content:'\20';display:block;height:0;line-height:0;visibility:hidden;clear:both}
+.h_login_pannel{right:0px;top:21px;width:182px;}
+.h_user_pic{float:left;margin-right:7px;}
+.h_per-infor{float:left;width:130px;}
+.h_unlogin_info{color:#858792;}
+.h_unlogin_info a{color:#ffffff;font-size:16px;}
+.h_sub-nav {position:absolute;top:83px;left:0;width:100%;background:#000;background:rgba(0,0,0,0.7);z-index:3;transition: all .3s ease; overflow: hidden;height: 0;box-sizing: border-box;}
+.h_sub-nav li a{font-size: 15px}
+.h_header:hover .h_sub-nav{height: 180px;}
+.h_sub-nav-inner {width:970px;height:200px;margin:0 auto;overflow:hidden;zoom:1;padding: 15px 0 30px 230px;}
+.h_down-nav{float:left;display:inline;width:100px;padding:2px 5px 0;text-align:center;white-space:nowrap;}
+.h_down-nav a{height:30px;line-height:30px;display:block;padding:0;font-size:14px;color:#c9c9dd;}
+.h_down-nav a:hover{color:#f3c258;text-decoration:underline;}
+.h_down-nav{padding-right:5px;}
+.h_down-nav .h_icon-guard,.h_down-nav .h_icon-health,.h_down-nav .h_icon-fans,.h_down-nav .h_icon-hot{overflow:hidden;display:inline-block;*display:inline;*zoom:1;width:24px;height:24px;vertical-align: middle;background: url(//game.gtimg.cn/images/yxzj/web201706/images/comm/index.png) no-repeat -136px -5px;}
+.h_down-nav .h_icon-health{background-position:-137px -36px;}
+.h_down-nav .h_icon-fans{background-position:-137px -68px;}
+.h_down-nav .h_icon-hot{background-position:-163px -68px;padding-right:2px;}
+
+.engineContain {
+    background: #F7FAFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 0.277778rem;
+    position: relative;
+}
+.engineContain *,.engineContain *::before,.engineContain *::after {
+    -webkit-box-sizing: border-box;
+    /* box-sizing: border-box; */
+}
+.engineCarousel {
+    width: 4.152778rem;
+}
+.ant-carousel {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+}
+.engineCarousel .left_btn {
+    left: 5%;
+    top: 50%;
+}
+.engineCarousel .right_btn {
+    right: 5%;
+    top: 50%;
+}
+.engineCarousel .left_btn, .engineCarousel .right_btn {
+    font-size: 0.555556rem;
+    color: #1890ff;
+    position: absolute;
+}
+.anticon {
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.ant-carousel .slick-slider {
+    position: relative;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.ant-carousel .slick-slider .slick-track, .ant-carousel .slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.ant-carousel .slick-list {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.ant-carousel .slick-dots-bottom {
+    bottom: 0.555556rem;
+    /* display: none; */
+}
+.ant-carousel .slick-dots {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+.ant-carousel .slick-dots {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+.ant-carousel .slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.engineCarousel .ant-carousel .slick-slide {
+    text-align: center;
+    height: 3.145833rem;
+    line-height: 3.145833rem;
+    overflow: hidden;
+}
+.ant-carousel .slick-initialized .slick-slide {
+    display: block;
+}
+.ant-carousel .slick-list .slick-slide {
+    pointer-events: none;
+}
+.ant-carousel .slick-dots {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+.anticon svg {
+    display: inline-block;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+/*svg[Attributes Style] {*/
+/*    width: 1em;*/
+/*    height: 1em;*/
+/*    fill: currentcolor;*/
+/*}*/
+.anticon > * {
+    line-height: 1;
+}
+/*path[Attributes Style] {*/
+/*    d: path("M 603.3 327.5 l -246 178 a 7.95 7.95 0 0 0 0 12.9 l 246 178 c 5.3 3.8 12.7 0 12.7 -6.5 V 643 c 0 -10.2 -4.9 -19.9 -13.2 -25.9 L 457.4 512 l 145.4 -105.2 c 8.3 -6 13.2 -15.6 13.2 -25.9 V 334 c 0 -6.5 -7.4 -10.3 -12.7 -6.5 Z");*/
+/*}*/
+
+
+
+
+
+
+
+
